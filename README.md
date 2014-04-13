@@ -39,3 +39,8 @@ paster serve --reload development.ini
 **Note:** You have to have the virtualenv activated for the paster script to work. The virtualenv stores all your Python libraries necessary for the app to work.
 
 Check out the [Mapfish documentation](http://mapfish.org/doc/2.2/index.html) and [Pylons documentation](http://docs.pylonsproject.org/projects/pylons-webframework/en/latest/).
+
+Why:
+----
+
+This is meant to be a back end for whatever front end we come up with. We can use whatever front end. It comes by default with the ExtJS, OpenLayers, GeoExt JavaScript libraries. 
