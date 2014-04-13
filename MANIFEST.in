@@ -1,0 +1,3 @@
+include hotspots/config/deployment.ini_tmpl
+recursive-include hotspots/public *
+recursive-include hotspots/templates *
