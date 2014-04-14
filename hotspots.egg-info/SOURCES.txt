@@ -1,5 +1,4 @@
 MANIFEST.in
-README.txt
 setup.cfg
 setup.py
 hotspots/__init__.py
@@ -18,13 +17,17 @@ hotspots/config/environment.py
 hotspots/config/middleware.py
 hotspots/config/routing.py
 hotspots/controllers/__init__.py
+hotspots/controllers/countries.py
 hotspots/controllers/error.py
+hotspots/controllers/users.py
 hotspots/lib/__init__.py
 hotspots/lib/app_globals.py
 hotspots/lib/base.py
 hotspots/lib/helpers.py
 hotspots/model/__init__.py
+hotspots/model/countries.py
 hotspots/model/meta.py
+hotspots/model/users.py
 hotspots/public/bg.png
 hotspots/public/favicon.ico
 hotspots/public/index.html
@@ -3115,3 +3118,5 @@ hotspots/templates/__init__.py
 hotspots/tests/__init__.py
 hotspots/tests/test_models.py
 hotspots/tests/functional/__init__.py
+hotspots/tests/functional/test_countries.py
+hotspots/tests/functional/test_users.py

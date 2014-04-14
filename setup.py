@@ -14,8 +14,10 @@ setup(
     url='',
     install_requires=[
         "Pylons>=1.0",
-        "SQLAlchemy>=0.5",
+        "SQLAlchemy<9.0",
         "Genshi>=0.4",
+        "geoalchemy",
+        "psycopg2",
     ],
     setup_requires=["PasteScript>=1.6.3"],
     packages=find_packages(exclude=['ez_setup']),
