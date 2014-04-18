@@ -22,6 +22,9 @@ def make_map(config):
     map.connect('/{controller}/{action}/{id}')
 
     # CUSTOM ROUTES HERE
+    map.connect("/zones/count", controller="zones", action="count")
+    map.resource("zone", "zones")
+
     map.resource("user", "users")
     map.connect("/users/count", controller="users", action="count")
 

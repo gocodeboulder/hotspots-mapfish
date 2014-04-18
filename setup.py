@@ -14,7 +14,7 @@ setup(
     url='',
     install_requires=[
         "Pylons>=1.0",
-        "SQLAlchemy<9.0",
+        "SQLAlchemy<=0.7.10",
         "Genshi>=0.4",
         "geoalchemy",
         "psycopg2",
