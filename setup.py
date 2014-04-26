@@ -13,6 +13,7 @@ setup(
     author_email='',
     url='',
     install_requires=[
+        "MapFish",
         "Pylons>=1.0",
         "SQLAlchemy<=0.7.10",
         "Genshi>=0.4",
