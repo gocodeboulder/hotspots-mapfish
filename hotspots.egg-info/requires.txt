@@ -1,5 +1,7 @@
+flup
+MapFish
 Pylons>=1.0
-SQLAlchemy>=0.5
+SQLAlchemy<=0.7.10
 Genshi>=0.4
 geoalchemy
 psycopg2

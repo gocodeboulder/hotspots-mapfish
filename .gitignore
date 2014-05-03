@@ -1,0 +1,5 @@
+*~
+*.pyc
+production.ini
+development.ini
+activate

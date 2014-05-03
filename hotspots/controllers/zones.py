@@ -35,7 +35,7 @@ class ZonesController(BaseController):
         # return self.protocol.read(request, filter=filter)
         if format != 'json':
             abort(404)
-        response.headers['Access-Control-Allow-Origin'] = 'http://107.170.116.243:8000';
+        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:8000';
         return self.protocol.read(request)
 
     @geojsonify
