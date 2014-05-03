@@ -22,6 +22,9 @@ def make_map(config):
     map.connect('/{controller}/{action}/{id}')
 
     # CUSTOM ROUTES HERE
+    map.connect("/broadband_speeds/count", controller="broadband_speeds", action="count")
+    map.resource("broadband_speed", "broadband_speeds")
+
     map.connect("/zones/count", controller="zones", action="count")
     map.resource("zone", "zones")
 
@@ -31,5 +34,13 @@ def make_map(config):
     map.resource("country", "countries")
     map.connect("/countries/count", controller="countries", action="count")
 
+    map.connect("/cellulars/count", controller="cellulars", action="count")
+    map.resource("cellular", "cellulars")
+
+    map.connect("/parking_facilities/count", controller="parking_facilities", action="count")
+    map.resource("parking_facility", "parking_facilities")
+
+    map.connect("/parking_meters/count", controller="parking_meters", action="count")
+    map.resource("parking_meter", "parking_meters")
 
     return map
