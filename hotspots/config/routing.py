@@ -22,6 +22,9 @@ def make_map(config):
     map.connect('/{controller}/{action}/{id}')
 
     # CUSTOM ROUTES HERE
+    map.connect("/census/count", controller="census", action="count")
+    map.resource("census", "census")
+    
     map.connect("/broadband_speeds/count", controller="broadband_speeds", action="count")
     map.resource("broadband_speed", "broadband_speeds")
 
