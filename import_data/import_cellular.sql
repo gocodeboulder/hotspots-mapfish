@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS cellular_performance;
+DROP SEQUENCE IF EXISTS cellular_performance_gid_seq;
 CREATE SEQUENCE cellular_performance_gid_seq;
 CREATE TABLE cellular_performance (
-  gid INT not null default nextval('cellular_performance_gid_seq'::regclass),
+  gid INT PRIMARY KEY DEFAULT nextval('cellular_performance_gid_seq'),
   downloadSpeed NUMERIC,
   latencyAverage NUMERIC,
   deviceSignalStrength NUMERIC,
