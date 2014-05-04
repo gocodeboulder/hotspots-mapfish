@@ -192,4 +192,16 @@ body {
   .inset {
     padding: 15px;
   }
+  #loading_thing {
+  position: absolute;
+  width: 50px;
+  top: 50%;
+  left: 50%;
+  }
+}
+
+#loading_thing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

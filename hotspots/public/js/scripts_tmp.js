@@ -227,7 +227,7 @@ $( document ).ready(function () {
 			.fail(function( jqxhr, textStatus, error ) {
 				var err = textStatus + ", " + error;
 				console.log( "Request Failed: " + err );
-                                fail_alert();
+                                //fail_display();
 			});
 
 		requests.push(request);
@@ -289,14 +289,12 @@ $( document ).ready(function () {
 		});
 
 */
-function fail_alert(){
-        $('#loading_thing').hide();
-        alert('Oops! There was an error loading your data. Refresh the page to try again.');
-
-}
+function fail_display() {
+      //$('#loading_thing').hide();
+      //alert('Oops! There was an error loading your data. Refresh the page to try again.');
+};
 	$.when.apply(this, requests).done(function () {
 		console.log('finished loading');
-                $('#loading_thing').hide();
+	        $('#loading_thing').hide();
 		updateHeatMap();
-	});
-});
+        });
