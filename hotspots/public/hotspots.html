@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HotSpots: Colorado Business Location Intelligence</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css"></link>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="plugins/slider/css/slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <div class="modal fade" id="business_types_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Search Local Businesses</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+                <div class="col-md-3">
+                <div class="checkbox"><label>Restaurants<input type="checkbox" /></label></div>
+                </div>
+                <div class="col-md-3">
+                <div class="checkbox"><label>Nightlife<input type="checkbox" /></label></div>
+                </div>
+                <div class="col-md-4">
+                <div class="checkbox"><label>Food<input type="checkbox" /></label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                <div class="checkbox"><label>Shopping<input type="checkbox" /></label></div>
+                </div>
+                <div class="col-md-3">
+                <div class="checkbox"><label>Bars<input type="checkbox" /></label></div>
+                </div>
+                <div class="col-md-4">
+                <div class="checkbox"><label>Beauty &amp; Spas<input type="checkbox" /></label></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                <div class="checkbox"><label>Automotive<input type="checkbox" /></label></div>
+                </div>
+                <div class="col-md-3">
+                <div class="checkbox"><label>Health &amp; Medical<input type="checkbox" /></label></div>
+                </div>
+                <div class="col-md-4">
+                <div class="checkbox"><label>Home Services<input type="checkbox" /></label></div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <a href="#content" class="sr-only">Skip to main content</a>
+    <div class="navbar-inverse navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>-->
+          <button id="menu-toggle" href="#" type="button" class="btn navbar-toggle" data-toggle="collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <span id="brand-name"><img alt="HotSpots" src="/img/hotspots_80px.png" height="40px"></span>
+            <span id="slogan">Hottest Business Locations in Colorado</span>
+          </a>
+        </div>
+        <!--
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>--><!--/.nav-collapse -->
+      </div>
+    </div>
+
+  <div id="wrapper">
+      <div id="sidebar-wrapper">
+
+        <div class="panel-group" id="accordion">
+
+          <!-- What's your business accordion panel -->
+          <!-- Comment out until next phase
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+              <div class="panel-heading">
+                <a data-toggle="modal" href="#avatarModal" >
+                  <h4 class="panel-title">What's Your Business?</h4>
+                </a>
+              </div>
+            </a>
+
+          </div>
+          -->
+
+          <!-- Liquor License accordion panel -->
+          <!-- Comment out until next phase
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Liquor Licenses
+                </h4>
+              </div>
+            </a>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                Importance: <div id="slider1" class="heatmap slider"></div>
+              </div>
+            </div>
+          </div>j
+          -->
+
+          <!-- Broadband accordion panel -->
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Broadband
+                </h4>
+              </div>
+            </a>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                Importance: <div id="slider2" class="heatmap slider"></div>
+              </div>
+            </div>
+          </div><!-- accordion panel -->
+
+          <!-- Mobile Phone accordion panel -->
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Mobile Phone Signal
+                </h4>
+              </div>
+            </a>
+            <div id="collapse4" class="panel-collapse collapse">
+              <div class="panel-body">
+                Importance: <div id="slider3" class="heatmap slider"></div>
+              </div>
+            </div>
+          </div><!-- accordion panel -->
+
+          <!-- Leisure accordion panel -->
+          <!-- Comment out until next phase
+            <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                    Leisure
+                </h4>
+              </div>
+            </a>
+            <div id="collapse5" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div>
+                    <div class="checkbox"><label>restaurant-bar<input type="checkbox" /></label></div>
+                    <div class="checkbox"><label>parks<input type="checkbox" /></label></div>
+                </div>
+              </div>
+            </div>
+            </div>
+           -->
+
+            <!-- Demographics accordion panel -->
+            <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                    Demographics - Coming Soon
+                </h4>
+              </div>
+            </a>
+            <div id="collapse6" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>
+                    Income: <b>$0</b> <input type="text" class="slider common-slider" value="" data-slider-min="0" data-slider-max="1000000" data-slider-step="10" data-slider-value="[0, 100000]" /> <b>$1 mil</b>
+                </p>
+                <p>
+                Age: <b>0</b> <input type="text" class="slider common-slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="20" data-slider-value="[18, 35]" /> <b>100</b>
+                </p>
+              </div>
+            </div>
+            </div>
+
+           <!-- Property Values accordion panel -->
+           <!-- Comment out until next phase
+            <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Walkability
+                </h4>
+              </div>
+            </a>
+            <div id="collapse7" class="panel-collapse collapse">
+              <div class="panel-body">
+                Importance: <div class="slider common-slider"></div>
+              </div>
+            </div>
+          </div>
+          -->
+
+          <!-- Property Values accordion panel -->
+          <!-- Comment out until next phase
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Property Values
+                </h4>
+              </div>
+            </a>
+            <div id="collapse8" class="panel-collapse collapse">
+              <div class="panel-body">
+               <p>
+                Max <input type="text" class="slider common-slider" value="" data-slider-min="0" data-slider-max="100000" data-slider-step="20" id="" />
+                </p>
+
+              </div>
+            </div>
+          </div>
+          -->
+
+          <!-- Parking accordion panel -->
+
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Parking
+                </h4>
+              </div>
+            </a>
+            <div id="collapse9" class="panel-collapse collapse">
+              <div class="panel-body">
+
+                <div class="checkbox">
+                    <label>Parking Facilities<input id="parkingFacilities" name="parkingFacilities" type="checkbox" /></label>
+                </div>
+                <label>Parking Meters</label>
+                Importance: <div id="slider4" class="heatmap slider"></div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Zoning accordion panel -->
+
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Zoning
+                </h4>
+              </div>
+            </a>
+            <div id="collapse10" class="panel-collapse collapse">
+              <div class="panel-body">
+               <p>
+                <div class="checkbox">
+                    <label>Mixed Use<input id="mixedZones" name="mixedZones" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Commercial<input id="commercialZones" name="commercialZones" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Industrial<input id="industrialZones" name="industrialZones" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Special<input id="specialZones" name="specialZones" type="checkbox" /></label>
+                </div>
+                <!-- Comment out until next phase
+                <div class="checkbox">
+                    <label>Sales Tax Districts<input name="taxCheckbox" type="checkbox" /></label>
+                </div>
+                -->
+                </p>
+              </div>
+            </div>
+          </div><!-- accordion panel -->
+
+
+          <!-- Area Incentives accordion panel -->
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Area Incentives - Coming Soon
+                </h4>
+              </div>
+            </a>
+            <div id="collapse11" class="panel-collapse collapse">
+              <div class="panel-body">
+               <p>
+                <div class="checkbox">
+                    <label>Business Improvement Districts<input id="busImprovmentDist" name="busImprovmentDist" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Enterprise Zones<input id="enterpriseZones" name="enterpriseZones" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>New Market Tax Credit<input id="newMarketTaxCredit" name="newMarketTaxCredit" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Construction Incentives<input id="contructionIncentives" name="contructionIncentives" type="checkbox" /></label>
+                </div>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Possible Drawbacks accordion panel -->
+          <div class="panel">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Possible Drawbacks - Coming Soon
+                </h4>
+              </div>
+            </a>
+            <div id="collapse12" class="panel-collapse collapse">
+              <div class="panel-body">
+               <p>
+                <div class="checkbox">
+                    <label>Nearby Construction Permits<input id="nearbyConstruct" name="nearbyConstruct" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Construction Moratorium<input id="constructMoratorium" name="constructMoratorium" type="checkbox" /></label>
+                </div>
+                <div class="checkbox">
+                    <label>Crime<input id="crime" name="crime" type="checkbox" /></label>
+                </div>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div><!-- accordion end -->
+
+        <!-- Search business accordion panel -->
+        <div class="panel">
+            <div class="panel-heading">
+                <a data-toggle="modal" href="#business_types_modal" >
+                    <h4 class="panel-title">Search Local Businesses</h4>
+                </a>
+            </div>
+       </div>
+
+      </div><!-- sidebar end -->
+
+      <div id="page-content-wrapper">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <div id="avatarModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">What's Your Business?</h4>
+          </div>
+          <div class="modal-body">
+            <p>Choose a business type to customize your search:</p>
+            <button type="button" class="btn btn-sm" id="bakeryBtn" data-text="foot traffic, zoning">Bakery</button>
+            <button type="button" class="btn btn-sm" id="storeBtn" data-text="foot traffic, income demographics">Store</button>
+            <button type="button" class="btn btn-sm" id="photoBtn" data-text="parking, age demographics">Photo Studio</button>
+            <button type="button" class="btn btn-sm" id="techBtn" data-text="broadband service, tax incentives">Tech Startup</button>
+            <br>
+            <br>
+            <p id="avatarDescription"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    <!-- scripts -->
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="js/webgl-heatmap.js"></script>
+    <script src="js/webgl-heatmap-leaflet.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="plugins/slider/js/bootstrap-slider.js"></script>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/avatar.js"></script>
+  </body>
+</html>

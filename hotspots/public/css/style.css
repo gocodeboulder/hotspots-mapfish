@@ -1,7 +1,7 @@
 html, body {
-	height: 100%;
-	padding: 0;
-	margin: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -22,17 +22,17 @@ body {
   font-style: italic;
 }
 
-#mapDiv {
-	position: absolute;
-	height: calc(100% - 65px - 50px);
-	width: calc(100% - 250px);
-	padding: 0;
-	margin: 0;
+#map {
+  position: absolute;
+  height: calc(100% - 50px);
+  width: calc(100% - 250px);
+  padding: 0;
+  margin: 0;
 }
 
 #main-content {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #wrapper {
@@ -44,7 +44,7 @@ body {
   margin-left: -250px;
   left: 250px;
   width: 250px;
-  background: #000;
+  background: #222;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -90,19 +90,12 @@ body {
   text-decoration: none;
 }
 
-.sidebar-nav > .sidebar-brand {
-  height: 65px;
-  line-height: 60px;
-  font-size: 18px;
+.navbar-brand {
+  padding: 8px;
 }
 
-.sidebar-nav > .sidebar-brand a {
-  color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
-  background: none;
+.navbar {
+  background-color: black;
 }
 
 .content-header {
@@ -126,8 +119,8 @@ body {
 }
 
 .slider {
-	width: 100%;
-	margin-left: 20px;
+  width: 100%;
+  margin-left: 20px;
 }
 
 .slider .tooltip.top .tooltip-arrow,
@@ -136,7 +129,7 @@ body {
 }
 
 .slider.slider-horizontal {
-  width: 200px !important; /* sorry for important, but accordion auto-calcs the width and puts it in the DOM element! */
+  /*width: 200px !important; /* sorry for important, but accordion auto-calcs the width and puts it in the DOM element! */
 }
 
 .tooltip.top {
@@ -161,44 +154,42 @@ body {
 
 
 @media (max-width:767px) {
-	#wrapper {
-	  padding-left: 0;
-	  height: 100%;
-	}
+  #wrapper {
+    position: relative;
+    padding-left: 0;
+    height: 100%;
+    width: 100%;
+  }
 
-	#wrapper:not(.active) #map {
-		position: absolute;
-		height: calc(100% - 65px - 50px);
-		width: 100%;
-		padding: 0;
-		margin: 0;
-	}
+  #map {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
 
-	#sidebar-wrapper {
-	  left: 0;
-	}
+  #sidebar-wrapper {
+    left: 0;
+  }
 
-	#wrapper.active {
-	  position: relative;
-	  left: 250px;
-	}
+  #wrapper.active {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: all 0.4s ease 0s;
+  }
 
-	#wrapper.active #page-content-wrapper {
-		width: calc(100% - 250px);
-		margin: 0;
-	}
+  #wrapper.active #sidebar-wrapper {
+    left: 250px;
+    width: 250px;
+    transition: all 0.4s ease 0s;
+  }
 
-	#wrapper.active #sidebar-wrapper {
-	  left: 250px;
-	  width: 250px;
-	  transition: all 0.4s ease 0s;
-	}
+  #menu-toggle {
+    display: inline-block;
+    float: left;
+  }
 
-	#menu-toggle {
-	  display: inline-block;
-	}
-
-	.inset {
-	  padding: 15px;
-	}
+  .inset {
+    padding: 15px;
+  }
 }
