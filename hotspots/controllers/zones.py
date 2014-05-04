@@ -35,7 +35,6 @@ class ZonesController(BaseController):
         # return self.protocol.read(request, filter=filter)
         if format != 'json':
             abort(404)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:8000';
         return self.protocol.read(request)
 
     @geojsonify
@@ -45,19 +44,21 @@ class ZonesController(BaseController):
             abort(404)
         return self.protocol.read(request, response, id=id)
 
-    @geojsonify
-    def create(self):
-        """POST /: Create a new feature."""
-        return self.protocol.create(request, response)
 
-    @geojsonify
-    def update(self, id):
-        """PUT /id: Update an existing feature."""
-        return self.protocol.update(request, response, id)
+    #@geojsonify
+    #def create(self):
+    #    """POST /: Create a new feature."""
+    #    return self.protocol.create(request, response)
+    #
+    #@geojsonify
+    #def update(self, id):
+    #    """PUT /id: Update an existing feature."""
+    #    return self.protocol.update(request, response, id)
+    #
+    #def delete(self, id):
+    #    """DELETE /id: Delete an existing feature."""
+    #    return self.protocol.delete(request, response, id)
 
-    def delete(self, id):
-        """DELETE /id: Delete an existing feature."""
-        return self.protocol.delete(request, response, id)
 
     def count(self):
         """GET /count: Count all features."""

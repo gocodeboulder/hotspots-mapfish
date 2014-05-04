@@ -31,11 +31,8 @@ def make_map(config):
     map.connect("/zones/count", controller="zones", action="count")
     map.resource("zone", "zones")
 
-    map.resource("user", "users")
-    map.connect("/users/count", controller="users", action="count")
-
-    map.resource("country", "countries")
-    map.connect("/countries/count", controller="countries", action="count")
+    #map.resource("user", "users")
+    #map.connect("/users/count", controller="users", action="count")
 
     map.connect("/cellulars/count", controller="cellulars", action="count")
     map.resource("cellular", "cellulars")

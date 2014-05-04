@@ -44,19 +44,19 @@ class CensusController(BaseController):
             abort(404)
         return self.protocol.read(request, response, id=id)
 
-    @geojsonify
-    def create(self):
-        """POST /: Create a new feature."""
-        return self.protocol.create(request, response)
-
-    @geojsonify
-    def update(self, id):
-        """PUT /id: Update an existing feature."""
-        return self.protocol.update(request, response, id)
-
-    def delete(self, id):
-        """DELETE /id: Delete an existing feature."""
-        return self.protocol.delete(request, response, id)
+    #@geojsonify
+    #def create(self):
+    #    """POST /: Create a new feature."""
+    #    return self.protocol.create(request, response)
+    #
+    #@geojsonify
+    #def update(self, id):
+    #    """PUT /id: Update an existing feature."""
+    #    return self.protocol.update(request, response, id)
+    #
+    #def delete(self, id):
+    #    """DELETE /id: Delete an existing feature."""
+    #    return self.protocol.delete(request, response, id)
 
     def count(self):
         """GET /count: Count all features."""
