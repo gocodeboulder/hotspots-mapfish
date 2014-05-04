@@ -6,6 +6,8 @@ from geoalchemy import GeometryColumn, MultiPolygon
 
 from mapfish.sqlalchemygeom import GeometryTableMixIn
 from hotspots.model.meta import Session, Base
+from sqlalchemy import and_, or_
+from geoalchemy.functions import functions
 
 class Zone(Base, GeometryTableMixIn):
     __tablename__ = 'zoning'

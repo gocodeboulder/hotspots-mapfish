@@ -17,7 +17,7 @@ SET default_with_oids = false;
 --
 -- Name: zoning; Type: TABLE; Schema: public; Owner: gocode; Tablespace: 
 --
-
+DROP TABLE IF EXISTS zoning;
 CREATE TABLE zoning (
     gid integer NOT NULL,
     code_versi smallint,

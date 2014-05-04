@@ -8,9 +8,9 @@ from hotspots.model.broadband_speeds import BroadbandSpeed
 from hotspots.model.zones import Zone
 from hotspots.model.meta import Session
 
-from mapfish.protocol import Protocol, create_default_filter, create_geom_filter
+from mapfish.protocol import Protocol, create_default_filter
 from mapfish.decorators import geojsonify
-from sqlalchemy import and_, or_
+from sqlalchemy import and_
 from geoalchemy.functions import functions
 
 class BroadbandSpeedsController(BaseController):

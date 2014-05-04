@@ -5,10 +5,15 @@ from pylons.controllers.util import abort, redirect
 
 from hotspots.lib.base import BaseController
 from hotspots.model.cellulars import Cellular
+from hotspots.model.zones import Zone
+
 from hotspots.model.meta import Session
 
 from mapfish.protocol import Protocol, create_default_filter
 from mapfish.decorators import geojsonify
+
+from sqlalchemy import and_, or_
+from geoalchemy.functions import functions
 
 class CellularsController(BaseController):
     readonly = False # if set to True, only GET is supported
@@ -35,7 +40,19 @@ class CellularsController(BaseController):
         # return self.protocol.read(request, filter=filter)
         if format != 'json':
             abort(404)
-        return self.protocol.read(request)
+
+        default_filter = create_default_filter(request, Cellular)
+
+        if "zones_f" in request.params:
+            zones_q = request.params["zones_f"].split(",")
+            zones = Session.query(functions.union(Zone.geom)).filter(Zone.zone_general.in_(zones_q)).first()
+            filter = and_(default_filter, Cellular.geom.within(zones))
+        else:
+            filter = default_filter
+
+        if format != 'json':
+            abort(404)
+        return self.protocol.read(request, filter=filter)
 
     @geojsonify
     def show(self, id, format='json'):
