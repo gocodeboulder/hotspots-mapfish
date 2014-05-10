@@ -1,10 +1,14 @@
-var baseURL = 'http://{s}.tile.cloudmade.com/{API}/{map_style}/256/{z}/{x}/{y}.png';
-
-var base = L.tileLayer(baseURL, { 
-	API: '9315dcdc627b4feab430d377cd7cb978', 
-	map_style: '1714' 
+var baseURL = 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg';
+var base = L.tileLayer(baseURL, {
+	API: '9315dcdc627b4feab430d377cd7cb978',
+	map_style: '1714',
+    subdomains: '1234',
+    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> | &copy; OpenStreetMap contributors'
 	});
 
+var hp = {
+    SOMETHINGFAILED: false
+}
 var denverLatLon = [39.7392, -104.9847];
 
 $.getJSON('/zones').done(function( data ) {
@@ -290,8 +294,12 @@ $( document ).ready(function () {
 
 */
 function fail_alert(){
+    //don't want to run this more than once
+    if (!hp.SOMETHINGFAILED){
+        hp.SOMETHINGFAILED = true;
         $('#loading_thing').hide();
         alert('Oops! There was an error loading your data. Refresh the page to try again.');
+    }
 
 }
 	$.when.apply(this, requests).done(function () {
